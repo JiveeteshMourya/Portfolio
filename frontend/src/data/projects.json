@@ -1,0 +1,16 @@
+[
+    {
+        "id": 99,
+        "title": "Example Title",
+        "description": "A personal portfolio website showcasing my projects, achievements, and skills.",
+        "image_path": "example image path",
+        "technologies": ["React", "Tailwind", "Framer Motion", "JavaScript"],
+        "type": "Project",
+        "links": {
+            "live": "http:/asd;lhfasdf",
+            "github": "https://github.com/JiveeteshMourya/Portfolio"
+        },
+        "date": "2025-01-20"
+    }
+
+]
