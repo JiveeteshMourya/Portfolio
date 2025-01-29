@@ -23,7 +23,9 @@
             "live": "https://delta-project-piji.onrender.com/listings",
             "github": "https://github.com/JiveeteshMourya/Delta-Project"
         },
-        "date": "2024-11-25"
+        "date": "2024-11-25",
+        "featured": false,
+        "filter": ["Project", "Full Stack"]
     },
     {
         "id": 2,
@@ -36,7 +38,9 @@
             "live": "https://frontendzerodhaclone.onrender.com/",
             "github": "https://github.com/JiveeteshMourya/Stock-Trading-Platform"
         },
-        "date": "2024-12-22"
+        "date": "2024-12-22",
+        "featured": true,
+        "filter": ["Project", "React", "MERN", "Full Stack"]
     },
     {
         "id": 3,
@@ -49,6 +53,8 @@
             "live": "https://frontendconverge.onrender.com/",
             "github": "https://github.com/JiveeteshMourya/Converge-Video_Conferencing_App"
         },
-        "date": "2025-01-20"
+        "date": "2025-01-20",
+        "featured": true,
+        "filter": ["Project", "React", "MERN", "Full Stack"]
     }
 ]

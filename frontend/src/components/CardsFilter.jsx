@@ -48,6 +48,5 @@ export default function CardsFilter() {
             </select>
         </div>
     </div>
-        
     </>)
 }
