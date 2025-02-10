@@ -1,7 +1,7 @@
 import Multiselect from 'multiselect-react-dropdown';
 import { useState, useEffect } from 'react';
 import PropTypes from "prop-types";
-export default function CardsFilter({projects}) {
+export default function CardsFilter({projects, onFilteredProjectsChange}) {
     const [selectedFilters, setSelectedFilters] = useState([]);
     const [sortBy, setSortBy] = useState("Featured");
     const [sortedProjects, setSortedProjects] = useState(projects);
@@ -29,11 +29,15 @@ export default function CardsFilter({projects}) {
         }
 
         setSortedProjects(filteredProjects);
+
     }, [selectedFilters, sortBy, projects]);
 
     useEffect(() => {
-        console.log(sortedProjects);
-    }, [sortedProjects]);
+        // console.log(sortedProjects);
+        if(onFilteredProjectsChange) {
+            onFilteredProjectsChange(sortedProjects);
+        }
+    }, [sortedProjects, onFilteredProjectsChange]);
 
     return (<>
     <div className="border-2 rounded-2xl flex p-4 m-auto w-[70%] my-5 justify-around items-center">
@@ -103,5 +107,6 @@ CardsFilter.propTypes = {
             featured: PropTypes.bool.isRequired,
             filter: PropTypes.arrayOf(PropTypes.string).isRequired,
         })
-    ).isRequired
+    ).isRequired,
+    onFilteredProjectsChange: PropTypes.func.isRequired
 }
