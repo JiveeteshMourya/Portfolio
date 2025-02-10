@@ -1,5 +1,40 @@
 import Multiselect from 'multiselect-react-dropdown';
-export default function CardsFilter() {
+import { useState, useEffect } from 'react';
+import PropTypes from "prop-types";
+export default function CardsFilter({projects}) {
+    const [selectedFilters, setSelectedFilters] = useState([]);
+    const [sortBy, setSortBy] = useState("Featured");
+    const [sortedProjects, setSortedProjects] = useState(projects);
+
+    useEffect (() => {
+        let filteredProjects = [...projects];
+        if(selectedFilters.length > 0) {
+            filteredProjects = filteredProjects.filter(project => 
+                selectedFilters.some(filter => 
+                    (project.filter?.includes(filter.key)) ||
+                    (project.type === filter.key)
+                )
+            );
+        }
+
+        if(sortBy === "Newest") {
+            filteredProjects.sort((a, b) => new Date(b.date) - new Date(a.date));
+        } else if(sortBy === "Oldest") {
+            filteredProjects.sort((a, b) => new Date(a.date) - new Date(b.date));
+        } else if(sortBy === "Featured") {
+            filteredProjects.sort((a, b) => {
+                if(a.featured === b.featured) return 0;
+                return a.featured ? -1 : 1;
+            })
+        }
+
+        setSortedProjects(filteredProjects);
+    }, [selectedFilters, sortBy, projects]);
+
+    useEffect(() => {
+        console.log(sortedProjects);
+    }, [sortedProjects]);
+
     return (<>
     <div className="border-2 rounded-2xl flex p-4 m-auto w-[70%] my-5 justify-around items-center">
         <div className="flex gap-x-4 items-center">
@@ -28,25 +63,45 @@ export default function CardsFilter() {
                     },
                     searchBox: {
                       border: 'none',
-                      'border-bottom': '1px solid black',
-                      'border-radius': '0px'
+                      borderBottom: '1px solid black',
+                      borderRadius: '0px'
                     }
                 }}
-                // Optional: if you need handlers, add them here
-                // onKeyPressFn={null}
-                // onRemove={null}
-                // onSearch={null}
-                // onSelect={null}
+                selectedValues={selectedFilters}
+                // onSelect={(selectedList) => setSelectedFilters(selectedList)}
+                onSelect={setSelectedFilters}
+                // onRemove={(selectedList) => setSelectedFilters(selectedList)}
+                onRemove={setSelectedFilters}
             />
         </div>
         <div className='items-center'>
             <label htmlFor="sortby">Sort by: </label>
-            <select name="sortby" id="sortby">
-                <option>Newest</option>
-                <option>Oldest</option>
-                <option selected>Featured</option>
+            <select name="sortby" id="sortby" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+                <option value="Newest">Newest</option>
+                <option value="Oldest">Oldest</option>
+                <option value="Featured">Featured</option>
             </select>
         </div>
     </div>
     </>)
+}
+
+CardsFilter.propTypes = {
+    projects: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            title: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired,
+            image_path: PropTypes.string.isRequired,
+            technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
+            type: PropTypes.string.isRequired,
+            links: PropTypes.shape({
+                live: PropTypes.string,
+                github: PropTypes.string
+            }).isRequired,
+            date: PropTypes.string.isRequired,
+            featured: PropTypes.bool.isRequired,
+            filter: PropTypes.arrayOf(PropTypes.string).isRequired,
+        })
+    ).isRequired
 }
