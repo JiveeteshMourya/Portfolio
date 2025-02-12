@@ -53,7 +53,9 @@ export default function CardsFilter({projects, onFilteredProjectsChange}) {
                     { key: 'MERN' },
                     { key: 'React' },
                     { key: 'AI/ML' },
-                    { key: 'DSA' }
+                    { key: 'DSA' },
+                    { key: 'Java'},
+                    { key: 'Python'}
                 ]}
                 placeholder="Select"
                 style={{
@@ -108,5 +110,6 @@ CardsFilter.propTypes = {
             filter: PropTypes.arrayOf(PropTypes.string).isRequired,
         })
     ).isRequired,
+    
     onFilteredProjectsChange: PropTypes.func.isRequired
 }
