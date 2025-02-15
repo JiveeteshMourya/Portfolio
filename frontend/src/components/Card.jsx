@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-export default function Card({key, project}) {
+import { Link } from 'react-router-dom';
+export default function Card({id, project}) {
     return (<>
         <div className="w-[30%] h-[45vh] border-2 rounded-lg p-2">
             <div className="w-full h-[60%] overflow-hidden rounded-lg">
@@ -8,13 +9,13 @@ export default function Card({key, project}) {
             <div>
                 <h1>{project.title}</h1>
                 <p className='line-clamp-2 text-sm'>{project.description}</p>
-                <button className='text-sm'>Open <i className="fa-solid fa-arrow-right"></i></button>
+                <Link to={`/card/${id}`} className='text-sm' >Open <i className="fa-solid fa-arrow-right"></i></Link>
             </div>
         </div>
     </>)
 }
 
 Card.propTypes = {
-    key: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
     project: PropTypes.object.isRequired
 }
