@@ -4,7 +4,7 @@ export default function Navbar() {
     let handleNameClick = () => navigate("/");
     let handleAboutClick = () => navigate("/about");
     return (<>
-        <div className="flex justify-around items-center p-6 text-xl bg-gray-800 text-white">
+        <div className="flex justify-around items-center p-6 text-xl bg-gray-800 text-white sticky top-0 z-50">
             <div className="text-2xl" onClick={handleNameClick}><h1>Jiveetesh Mourya</h1></div>
             <div className="flex gap-6">
                 <button className="cursor-pointer" onClick={handleAboutClick}>About</button>
