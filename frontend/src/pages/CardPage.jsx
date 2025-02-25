@@ -9,7 +9,7 @@ export default function CardPage() {
 
     if (!project) return <h1 className="text-center text-2xl font-bold mt-10">Project Not Found</h1>;
     return (
-        <>
+        <div className="bg-gray-200">
             <Navbar />
             <div className="w-full h-[40vh] bg-gray-100 flex items-center justify-center">
                 <img src={project.image_path} alt={project.image_path} className="w-full h-full object-cover" />
@@ -36,6 +36,6 @@ export default function CardPage() {
                     <i className="fa-brands fa-github"></i> {project.links.github}
                 </a>
             </div>
-        </>
+        </div>
     );
 }
