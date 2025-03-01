@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 export default function Card({id, project}) {
     return (<>
-        <div className="w-[30%] h-[45vh] border border-gray-200 rounded-lg p-2 bg-white shadow-sm hover:shadow-md  transition-shadow duration-300">
+        <div className="w-[30%] h-[45vh] border border-gray-200 rounded-lg p-2 bg-[#F1F1F1] shadow-sm hover:shadow-md  transition-shadow duration-300 max-sm:w-full max-sm:h-[30vh]">
             <div className="w-full h-[60%] overflow-hidden rounded-lg mb-2">
                 <img src={project.image_path} alt="card_image" className="object-cover transition-transform duration-300 hover:scale-105"/>
             </div>

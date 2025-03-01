@@ -8,7 +8,7 @@ export default function CardSection() {
 
     return (
         <>
-            <div className="bg-gray-200 py-10 px-5">
+            <div className="bg-[#ECf0F1] py-10 px-5">
                 <CardsFilter projects={projects} onFilteredProjectsChange={setSelectedProjects} />
                 <div className="flex flex-wrap justify-around gap-6 pt-8">
                     {selectedProjects.map(project => (

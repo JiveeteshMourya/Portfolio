@@ -40,8 +40,8 @@ export default function CardsFilter({projects, onFilteredProjectsChange}) {
     }, [sortedProjects, onFilteredProjectsChange]);
 
     return (<>
-    <div className="border border-gray-200 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow duration-300 flex p-4 m-auto w-[70%] my-1 justify-around items-center">
-        <div className="flex gap-x-4 items-center">
+    <div className="border border-gray-200 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow duration-300 flex p-4 m-auto w-[70%] justify-around items-center max-sm:m-0 max-sm:text-xs max-sm:w-full max-sm:justify-between">
+        <div className="flex gap-x-2 items-center">
             <span className="text-sm font-medium text-gray-700">Filter by:</span>
             <Multiselect
                 displayValue="key"
