@@ -57,7 +57,7 @@ export default function AboutPage() {
                 </div>
             </div>
             <div className="basis-1/3 p-4 max-sm:basis-3/3">
-                <img src="./public/JCodeLogo.png" className="object-cover h-[40%] mb-6"/>
+                <img src="./JCodeLogo.png" className="object-cover h-[40%] mb-6"/>
                 <div><p>Email: jiveemourya@gmail.com</p></div>
                 <div className="border border-black my-2 p-2 text-center rounded w-[80%]" ><a href="https://mail.google.com/mail/?view=cm&fs=1&to=jiveemourya@gmail.com" target="_blank">Click here to gmail directly</a></div>
                 {/* <p>add resume pdf</p> */}
