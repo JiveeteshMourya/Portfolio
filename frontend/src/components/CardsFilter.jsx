@@ -40,9 +40,24 @@ export default function CardsFilter({projects, onFilteredProjectsChange}) {
     }, [sortedProjects, onFilteredProjectsChange]);
 
     return (<>
-    <div className="border border-gray-200 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow duration-300 flex p-4 m-auto w-[70%] justify-around items-center max-sm:m-0 max-sm:text-xs max-sm:w-full max-sm:justify-between">
-        <div className="flex gap-x-2 items-center">
-            <span className="text-sm font-medium text-gray-700">Filter by:</span>
+    <style>
+        {`
+            @media (max-width: 380px) {
+                .searchBox {
+                    width: 6rem !important;
+                }
+            }
+            @media (max-width: 325px) {
+                .searchBox {
+                    width: 4rem !important;
+                }
+            }
+        `}
+    </style>
+
+    <div className="border border-gray-200 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow duration-300 flex p-4 m-auto w-[70%] justify-around items-center max-sm:m-0 max-sm:text-xs max-sm:w-full max-sm:justify-between ">
+        <div className="flex gap-x-2 items-center max-[380px]:gap-x-1 max-[380px]:mr-3 max-[325px]:mr-2">
+            <span className="text-sm font-medium text-gray-700 max-[325px]:text-xs">Filter by:</span>
             <Multiselect
                 displayValue="key"
                 id="css_custom"
@@ -80,9 +95,9 @@ export default function CardsFilter({projects, onFilteredProjectsChange}) {
                 onRemove={setSelectedFilters}
             />
         </div>
-        <div className='flex items-center gap-2'>
-            <label htmlFor="sortby"><span className="text-sm font-medium text-gray-700">Sort by:</span></label>
-            <select name="sortby" id="sortby" value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="text-sm border border-gray-300 rounded-md p-1 focus:outline-none focus:ring-1 focus:ring-blue-500">
+        <div className='flex items-center gap-2 max-[380px]:gap-x-1 max-[380px]:ml-3 max-[325px]:ml-2'>
+            <label htmlFor="sortby"><span className="text-sm font-medium text-gray-700 max-[325px]:text-xs">Sort by:</span></label>
+            <select name="sortby" id="sortby" value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="text-sm border border-gray-300 rounded-md p-1 focus:outline-none focus:ring-1 focus:ring-blue-500 max-[325px]:text-xs">
                 <option value="Newest">Newest</option>
                 <option value="Oldest">Oldest</option>
                 <option value="Featured">Featured</option>

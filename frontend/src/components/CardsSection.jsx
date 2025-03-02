@@ -1,6 +1,6 @@
 import Card from "./Card";
 import CardsFilter from "./CardsFilter";
-import projects from "../data/projects.json";
+import projects from "../data/projects.js";
 import { useState } from "react";
 
 export default function CardSection() {
@@ -8,7 +8,7 @@ export default function CardSection() {
 
     return (
         <>
-            <div className="bg-[#ECf0F1] py-10 px-5">
+            <div className="bg-[#ECf0F1] py-10 px-5 max-[380px]:px-2 max-[380px]:py-5">
                 <CardsFilter projects={projects} onFilteredProjectsChange={setSelectedProjects} />
                 <div className="flex flex-wrap justify-around gap-6 pt-8">
                     {selectedProjects.map(project => (

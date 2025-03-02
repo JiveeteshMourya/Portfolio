@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import { useParams } from "react-router-dom";
-import projects from "../data/projects.json";
+import projects from "../data/projects.js";
 
 export default function CardPage() {
     const { id } = useParams();
@@ -11,9 +11,9 @@ export default function CardPage() {
     return (
         <div className="bg-[#ECf0F1]">
             <Navbar />
-            <div className="w-full h-[40vh] bg-gray-100 flex items-center justify-center max-sm:h-[30vh]">
-                <img src={project.image_path} alt={project.image_path} className="w-full h-full object-cover" />
-                {/* <img src="frontend\public\JCodeLogo.png" alt={project.image_path} className="w-full h-full object-cover" /> */}
+            <div className="w-full h-[40vh] max-sm:h-[30vh]">
+                <img src={ project.image_path } alt={project.image_path} className="w-full h-full object-cover" />
+                {/* <img src="./assets/JCodeLogo.png" alt={project.image_path} className="w-full h-full object-cover" /> */}
             </div>
             <div className="leading-loose p-6 bg-white shadow-md rounded-lg mt-6 mx-auto max-w-4xl">
                 <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
